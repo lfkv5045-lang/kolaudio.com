@@ -10,12 +10,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .export-options{display:flex;align-items:center;gap:7px;margin-left:10px}
-    .export-options select{height:31px;background:#23242a;color:#ddd;border:1px solid #393a42;border-radius:4px;padding:0 6px;font:10px 'DM Mono',monospace}
-    .export-options .export-button{margin:0;white-space:nowrap}
-    @media(max-width:760px){.export-options{gap:4px;margin-left:2px}.export-options select{max-width:70px;padding:0 2px}.export-options .export-button{padding:8px 7px;font-size:10px}}
-  </style>
 </head>
 <body>
   <div class="app-shell">
@@ -30,22 +24,18 @@
         <div class="welcome-art" aria-hidden="true"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="art-disc"><div class="disc-groove"></div><div class="disc-groove groove-two"></div><div class="disc-center"><span>k</span></div></div><div class="art-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="art-caption">STEREO / 48 KHZ</div></div>
       </section>
       <section class="studio" id="studio" hidden>
-        <div class="transport">
-          <div class="transport-main"><button class="transport-button record-button" id="recordBtn" title="Record" aria-label="Record"><span></span></button><button class="transport-button" id="playBtn" title="Play" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><button class="transport-button" id="stopBtn" title="Stop" aria-label="Stop"><svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg></button><span class="transport-divider"></span><div class="time-readout"><span id="currentTime">00:00.0</span><span class="time-slash">/</span><span id="duration">00:00.0</span></div></div>
-          <div class="transport-tools"><label class="tool-label" for="volume">VOLUME</label><span class="volume-icon">◖</span><input id="volume" type="range" min="0" max="1" value="0.85" step="0.01" aria-label="Volume"><div class="export-options"><select id="mp3Bitrate" aria-label="MP3 bitrate"><option value="128">128 kbps</option><option value="192" selected>192 kbps</option><option value="256">256 kbps</option><option value="320">320 kbps</option></select><button class="export-button" id="exportMp3" disabled title="Export audio as MP3"><span>↓</span> MP3</button><button class="export-button" id="exportBtn" disabled title="Export audio as WAV"><span>↓</span> WAV</button></div></div>
-        </div>
+        <div class="transport"><div class="transport-main"><button class="transport-button record-button" id="recordBtn" title="Record" aria-label="Record"><span></span></button><button class="transport-button" id="playBtn" title="Play" aria-label="Play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button><button class="transport-button" id="stopBtn" title="Stop" aria-label="Stop"><svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg></button><span class="transport-divider"></span><div class="time-readout"><span id="currentTime">00:00.0</span><span class="time-slash">/</span><span id="duration">00:00.0</span></div></div><div class="transport-tools"><label class="tool-label" for="volume">VOLUME</label><span class="volume-icon">◖</span><input id="volume" type="range" min="0" max="1" value="0.85" step="0.01" aria-label="Volume"><button class="export-button" id="exportBtn" disabled><span>↓</span> Export WAV</button></div></div>
         <div class="editbar"><div class="edit-tools"><button class="edit-tool active" title="Selection tool" aria-label="Selection tool">⌖</button><button class="edit-tool" id="zoomIn" title="Zoom in" aria-label="Zoom in">＋</button><button class="edit-tool" id="zoomOut" title="Zoom out" aria-label="Zoom out">−</button><span class="tool-divider"></span><button class="text-tool" id="fitBtn">Fit project</button></div><div class="track-info" id="trackInfo">No track loaded</div><button class="text-tool" id="addAudio">＋ Add audio</button></div>
         <div class="timeline-wrap"><div class="timeline-label"></div><canvas id="timeline" aria-hidden="true"></canvas></div>
-        <div class="track-area" id="trackArea"><div class="track-sidebar"><div class="track-heading"><span class="track-color"></span><div class="track-title-wrap"><strong id="trackName">Audio track</strong><small id="trackMeta">STEREO · 48 KHZ</small></div><button class="more-button" aria-label="Track options">···</button></div><div class="track-controls"><button title="Mute" id="muteBtn">M</button><button title="Solo" id="soloBtn">S</button><span class="track-control-divider"></span><span class="pan-label">L</span><input type="range" min="-1" max="1" value="0" step="0.01" aria-label="Pan"><span class="pan-label">R</span></div></div><div class="wave-scroll" id="waveScroll"><canvas id="waveform" aria-label="Audio waveform. Click to move playback position."></canvas><div class="playhead" id="playhead"></div><div class="empty-track" id="emptyTrack"><div class="empty-icon">⌁</div><strong>Your audio will appear here</strong><span>Import a file or record right into the timeline</span></div></div></div>
+        <div class="track-area" id="trackArea"><div class="track-sidebar"><div class="track-heading"><span class="track-color"></span><div class="track-title-wrap"><strong id="trackName">Audio track</strong><small id="trackMeta">STEREO · 48 KHZ</small></div><button class="more-button" aria-label="Track options">···</button></div><div class="track-controls"><button title="Mute" id="muteBtn">M</button><button title="Solo" id="soloBtn">S</button><span class="track-control-divider"></span><span class="pan-label">L</span><input type="range" min="-1" max="1" value="0" step="0.01" aria-label="Pan"><span class="pan-label">R</span></div></div><div class="wave-scroll" id="waveScroll"><canvas id="waveform" aria-label="Audio waveform. Drag to select a range."></canvas><div class="playhead" id="playhead"></div><div class="empty-track" id="emptyTrack"><div class="empty-icon">⌁</div><strong>Your audio will appear here</strong><span>Import a file or record right into the timeline</span></div></div></div>
         <div class="bottom-bar"><span><span class="bottom-led"></span> Ready to create</span><span id="selectionInfo">No selection</span><span>44.1 kHz <span class="bottom-divider">·</span> Stereo</span></div>
       </section>
-      <input type="file" id="fileInput" accept="audio/*,.wav,.mp3,.ogg,.m4a,.flac,.webm,.aac" hidden>
-      <audio id="audio" preload="metadata"></audio>
+      <input type="file" id="fileInput" accept="audio/*,.wav,.mp3,.ogg,.m4a,.flac,.webm,.aac" hidden><audio id="audio" preload="metadata"></audio>
     </main>
     <footer><span>Made for the love of sound.</span><span>KOLAUDIO STUDIO <span class="footer-dot">●</span> BETA</span></footer>
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.1/lame.min.js"></script>
   <script src="app.js"></script>
+  <script src="advanced.js"></script>
 </body>
 </html>
